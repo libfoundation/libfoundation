@@ -6,23 +6,10 @@ struct LFList {
   struct LFRef *ref;
 };
 
+LFREF_RETAIN_RELEASE_IMPL(struct LFList, ref, LFListRetain, LFListRelease);
+
 struct LFList *LFListNew() {
   struct LFList *list = malloc(sizeof(struct LFList));
   list->ref = LFRefNew();
   return list;
-}
-
-struct LFList *LFListRetain(struct LFList *list) {
-  LFRefRetain(list->ref);
-  return list;
-}
-
-struct LFList *LFListRelease(struct LFList *list) {
-  list->ref = LFRefRelease(list->ref);
-  if (list->ref == NULL) {
-    free(list);
-    return NULL;
-  } else {
-    return list;
-  }
 }
