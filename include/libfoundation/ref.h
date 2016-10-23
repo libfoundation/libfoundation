@@ -1,7 +1,9 @@
 #pragma once
 
+#include <stdbool.h>
+
 struct LFRef;
 
 struct LFRef *LFRefNew();
-void LFRefRetain(struct LFRef *ref);
-void LFRefRelease(struct LFRef *ref);
+struct LFRef *LFRefRetain(struct LFRef *ref);
+struct LFRef *LFRefRelease(struct LFRef *ref);

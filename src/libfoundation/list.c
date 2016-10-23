@@ -12,10 +12,17 @@ struct LFList *LFListNew() {
   return list;
 }
 
-void LFListRetain(struct LFList *list) {
+struct LFList *LFListRetain(struct LFList *list) {
   LFRefRetain(list->ref);
+  return list;
 }
 
-void LFListRelease(struct LFList *list) {
-  LFRefRelease(list->ref);
+struct LFList *LFListRelease(struct LFList *list) {
+  list->ref = LFRefRelease(list->ref);
+  if (list->ref == NULL) {
+    free(list);
+    return NULL;
+  } else {
+    return list;
+  }
 }

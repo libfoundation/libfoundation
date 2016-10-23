@@ -13,13 +13,17 @@ struct LFRef *LFRefNew() {
   return ref;
 }
 
-void LFRefRetain(struct LFRef *ref) {
+struct LFRef *LFRefRetain(struct LFRef *ref) {
   ref->refcount++;
+  return ref;
 }
 
-void LFRefRelease(struct LFRef *ref) {
+struct LFRef *LFRefRelease(struct LFRef *ref) {
   ref->refcount--;
   if (ref->refcount == 0) {
     free(ref);
+    return NULL;
+  } else {
+    return ref;
   }
 }
