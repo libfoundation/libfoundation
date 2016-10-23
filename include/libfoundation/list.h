@@ -3,5 +3,5 @@
 struct LFList;
 
 struct LFList *LFListNew();
-void LFListRetain();
-void LFListRelease();
+void LFListRetain(struct LFList *list);
+void LFListRelease(struct LFList *list);
