@@ -1,0 +1,9 @@
+
+cxx_test(
+    name = 'tests',
+    srcs = glob(['**/*.c']),
+    headers = glob(['**/*.h']),
+    deps = ['//:libfoundation']
+    compiler_flags = [],
+    visibility = ['PUBLIC'],
+)
