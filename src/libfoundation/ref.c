@@ -1,6 +1,4 @@
 #include <libfoundation/ref.h>
-#include <stdlib.h>
-#include <inttypes.h>
 
 // TODO make thread safe with mutex around refcount
 struct LFRef {
@@ -11,6 +9,10 @@ struct LFRef *LFRefNew() {
   struct LFRef *ref = malloc(sizeof(struct LFRef));
   ref->refcount = 1;
   return ref;
+}
+
+uint8_t LFRefRetainCount(struct LFRef *ref) {
+  return ref->refcount;
 }
 
 struct LFRef *LFRefRetain(struct LFRef *ref) {

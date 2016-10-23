@@ -1,9 +1,8 @@
 
 cxx_test(
-    name = 'tests',
-    srcs = glob(['**/*.c']),
-    headers = glob(['**/*.h']),
-    deps = ['//:libfoundation']
-    compiler_flags = [],
-    visibility = ['PUBLIC'],
+  name = 'tests',
+  srcs = glob(['**/*.cpp']),
+  deps = ['//:libfoundation', '//lib/gtest:gtest'],
+  compiler_flags = ['-std=c++11'],
+  visibility = ['PUBLIC'],
 )

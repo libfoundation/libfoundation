@@ -1,5 +1,9 @@
 #pragma once
 
+#include <stdlib.h>
+
+#include <libfoundation/ref.h>
+
 struct LFList;
 
 struct LFList *LFListNew();

@@ -1,6 +1,4 @@
 #include <libfoundation/list.h>
-#include <libfoundation/ref.h>
-#include <stdlib.h>
 
 struct LFList {
   struct LFRef *ref;

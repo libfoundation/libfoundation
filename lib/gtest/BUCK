@@ -1,0 +1,14 @@
+
+cxx_library(
+  name = 'gtest',
+  srcs = glob(['src/*.cc']),
+  exported_headers = subdir_glob([
+    ('include', '**/*.h'),
+    ('', 'src/*.h'),
+    ('', 'src/*.cc'),
+  ]),
+  header_namespace = '',
+  compiler_flags = ['-std=c++11'],
+  deps = [],
+  visibility = ['PUBLIC'],
+)

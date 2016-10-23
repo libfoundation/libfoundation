@@ -1,10 +1,13 @@
 #pragma once
 
+#include <stdlib.h>
 #include <stdbool.h>
+#include <inttypes.h>
 
 struct LFRef;
 
 struct LFRef *LFRefNew();
+uint8_t LFRefRetainCount(struct LFRef *ref);
 struct LFRef *LFRefRetain(struct LFRef *ref);
 struct LFRef *LFRefRelease(struct LFRef *ref);
 
